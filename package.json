@@ -1,31 +1,14 @@
 {
-    "name": "base-meta-memory",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "pre-copy": "cd .. && npm run  copy.lib base-meta-memory",
-        "start": "node app.js"
-    },
-    "keywords": [],
-    "dependencies": {
-        "@bot-whatsapp/bot": "latest",
-        "@bot-whatsapp/cli": "latest",
-        "@bot-whatsapp/database": "latest",
-        "@bot-whatsapp/provider": "latest",
-        "@google/generative-ai": "^0.24.1",
-        "axios": "^1.2.1",
-        "body-parser": "^1.20.1",
-        "express": "^5.1.0",
-        "form-data": "4.0.0",
-        "openai": "^5.16.0",
-        "polka": "^0.5.2",
-        "queue-promise": "2.2.1"
-    },
-    "devDependencies": {
-        "eslint": "^8.52.0",
-        "eslint-plugin-bot-whatsapp": "latest"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "base-meta-memory",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@bot-whatsapp/bot": "^0.1.0",
+    "@bot-whatsapp/provider/meta": "^0.1.0",
+    "@bot-whatsapp/database/mock": "^0.1.0"
+  }
 }
