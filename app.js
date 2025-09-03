@@ -79,7 +79,7 @@ const main = async () => {
     ]);
 
     const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAXpk12nUvMBPYTVUGOy6qpIXFXlqz2QKgKmjmthVkZAbZAVE0mtmomphCnoloZAOg7SgsnIvHxIWl821AvACFfh4obgL5MSZA9KZByZB5WpCFCbd7ugllemlqED58MgH2agj9uMflDHyLkMrnNOKtra4WzWQitLOdoNBKQrAH8xt2ocAEbTrl99aji4ZA29WwQrYbQziZAOq4UzcVFOdgDtep3NvOL3OKolrBNjKw3OyabR8gZDZD',
+        jwtToken: 'EAAXpk12nUvMBPd8DcKxCd9mn3CB4yXJJlZBheUtQEehK45HctwnJtOysvt3K7QnBhTD3rIPwJyc6CwnRay2peSYYH06MJr1vhOxxNNuT834URUJJPkycZAImZC0qTHxHTe9C0KcZAipCZBeABlodFZASpYd6s8f1sZBaLNmhVcQBoKtZC9f99TpXXyUBsiETxBek3UrLojWYhnU4QEPi7C3TwdRZCIwaxbUor3o3vGgQucqWTrgZDZD',
         numberId: '791792920678436',
         verifyToken: 'verifyTokenPrueba',
         version: 'v16.0'
