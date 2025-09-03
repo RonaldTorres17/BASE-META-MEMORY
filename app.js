@@ -67,6 +67,8 @@ const flowBienvenida = addKeyword(EVENTS.WELCOME)
  * Función principal
  */
 const main = async () => {
+    const PORT = process.env.PORT || 3000;
+
     const adapterDB = new MockAdapter();
     const adapterFlow = createFlow([
         flowBienvenida,
@@ -79,10 +81,11 @@ const main = async () => {
     ]);
 
     const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAXpk12nUvMBPd8DcKxCd9mn3CB4yXJJlZBheUtQEehK45HctwnJtOysvt3K7QnBhTD3rIPwJyc6CwnRay2peSYYH06MJr1vhOxxNNuT834URUJJPkycZAImZC0qTHxHTe9C0KcZAipCZBeABlodFZASpYd6s8f1sZBaLNmhVcQBoKtZC9f99TpXXyUBsiETxBek3UrLojWYhnU4QEPi7C3TwdRZCIwaxbUor3o3vGgQucqWTrgZDZD',
+        jwtToken: 'EAAXpk12nUvMBPYTVUGOy6qpIXFXlqz2QKgKmjmthVkZAbZAVE0mtmomphCnoloZAOg7SgsnIvHxIWl821AvACFfh4obgL5MSZA9KZByZB5WpCFCbd7ugllemlqED58MgH2agj9uMflDHyLkMrnNOKtra4WzWQitLOdoNBKQrAH8xt2ocAEbTrl99aji4ZA29WwQrYbQziZAOq4UzcVFOdgDtep3NvOL3OKolrBNjKw3OyabR8gZDZD',
         numberId: '791792920678436',
         verifyToken: 'verifyTokenPrueba',
-        version: 'v16.0'
+        version: 'v16.0',
+        port: PORT // 👈 obligamos a usar el puerto de Render
     });
 
     createBot({
@@ -91,10 +94,8 @@ const main = async () => {
         database: adapterDB,
     });
 
-    // 👇 Servidor HTTP para Render
+    // Servidor HTTP para Render
     const app = express();
-    const PORT = process.env.PORT || 3000;
-
     app.get("/", (req, res) => {
         res.send("Bot WhatsApp corriendo 🚀");
     });
