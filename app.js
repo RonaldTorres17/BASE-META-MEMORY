@@ -58,7 +58,7 @@ const main = async () => {
     jwtToken: 'EAAXpk12nUvMBPdsn4AHwC8SwtlYDu6cIyaYxmIrPkaapaOpZCY9tRKZBBc5QTJI4WzKAIKTwgNfKEYVFkpeTro17NP24vD3Xuh8WjDIioZAsF9ZAlqlvcUP47lJyatoMj6MTO22qPw3O7JjVEFKJ3yEZCoJCIaEiAr2GGLC86fsAUcC77bMsahyW83nZAc7PaEZCdnFuBKwONhJQ6VJ36oVpbXFlh65Waza2L1jOIhUBHUkTQZDZD',
     numberId: 'T791792920678436',
     verifyToken: 'verifyTokenPrueba',
-    version: 'v16.0',
+    version: 'v23.0',
     baseUrl: `https://base-meta-memory-r1d6.onrender.com` // 👈 tu URL pública en Render
   });
 
