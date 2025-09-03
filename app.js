@@ -1,6 +1,7 @@
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot');
 const MetaProvider = require('@bot-whatsapp/provider/meta');
 const MockAdapter = require('@bot-whatsapp/database/mock');
+const express = require("express");
 
 /**
  * Flujos con respuestas automatizadas para los 5 botones
@@ -28,9 +29,8 @@ const flowPromociones = addKeyword(['✨ Promociones y Ofertas del Día', 'promo
 const flowHablarAgente = addKeyword(['💬 Hablar con un Agente', 'contacto', 'hablar con alguien'])
     .addAnswer('Entendido. En breve un miembro de nuestro equipo te atenderá para resolver tus dudas. Por favor, sé paciente. 😉');
 
-
 /**
- * Flujos principales y de bienvenida con los botones.
+ * Flujo por defecto (respuestas inválidas)
  */
 const flowInvalido = addKeyword([''])
     .addAnswer(
@@ -46,6 +46,9 @@ const flowInvalido = addKeyword([''])
         }
     );
 
+/**
+ * Flujo de bienvenida
+ */
 const flowBienvenida = addKeyword(EVENTS.WELCOME)
     .addAnswer(
         '¡Hola! 👋 Soy Selena, la asistente virtual de La Gela. ¿En qué puedo ayudarte hoy? 🤔',
@@ -61,7 +64,7 @@ const flowBienvenida = addKeyword(EVENTS.WELCOME)
     );
 
 /**
- * Función principal para iniciar el chatbot.
+ * Función principal
  */
 const main = async () => {
     const adapterDB = new MockAdapter();
@@ -72,21 +75,33 @@ const main = async () => {
         flowHorariosUbicacion,
         flowPromociones,
         flowHablarAgente,
-        flowInvalido // Importante: Este flujo siempre va al final de la lista
+        flowInvalido
     ]);
 
-   const adapterProvider = createProvider(MetaProvider, {
+    const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAXpk12nUvMBPYTVUGOy6qpIXFXlqz2QKgKmjmthVkZAbZAVE0mtmomphCnoloZAOg7SgsnIvHxIWl821AvACFfh4obgL5MSZA9KZByZB5WpCFCbd7ugllemlqED58MgH2agj9uMflDHyLkMrnNOKtra4WzWQitLOdoNBKQrAH8xt2ocAEbTrl99aji4ZA29WwQrYbQziZAOq4UzcVFOdgDtep3NvOL3OKolrBNjKw3OyabR8gZDZD',
         numberId: '791792920678436',
         verifyToken: 'verifyTokenPrueba',
         version: 'v16.0'
-        });
+    });
 
     createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     });
-}
+
+    // 👇 Servidor HTTP para Render
+    const app = express();
+    const PORT = process.env.PORT || 3000;
+
+    app.get("/", (req, res) => {
+        res.send("Bot WhatsApp corriendo 🚀");
+    });
+
+    app.listen(PORT, () => {
+        console.log(`Servidor escuchando en http://localhost:${PORT}`);
+    });
+};
 
 main();
