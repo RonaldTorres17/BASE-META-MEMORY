@@ -76,12 +76,11 @@ const main = async () => {
     ]);
 
    const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAXpk12nUvMBPWN1lL71ch3ToiEgywA8u7IZBKmyGgCSZBOMcpTARRbOdZA2b5rorF1ZAkmbdZCTCfKg6NxujG5oN4Xp1Xz9QUW60VADnSxnZCP4YEhgdZCh0TG0l9qkbQyGlbwNZBGW8GLfE5ZBqeaFXUv7hhsMIZAPVkR8oVczwgyLsoixTnvD1ARV1keexi0vWfgkzutdZAdEQTkNZBYUcIebip7TSbnMD2rU0gzjZByJMvp0uKAZDZD',
+        jwtToken: 'EAAXpk12nUvMBPYTVUGOy6qpIXFXlqz2QKgKmjmthVkZAbZAVE0mtmomphCnoloZAOg7SgsnIvHxIWl821AvACFfh4obgL5MSZA9KZByZB5WpCFCbd7ugllemlqED58MgH2agj9uMflDHyLkMrnNOKtra4WzWQitLOdoNBKQrAH8xt2ocAEbTrl99aji4ZA29WwQrYbQziZAOq4UzcVFOdgDtep3NvOL3OKolrBNjKw3OyabR8gZDZD',
         numberId: '791792920678436',
         verifyToken: 'verifyTokenPrueba',
-        version: 'v16.0',
-        port: 4000 // Aquí defines el nuevo puerto
-    });
+        version: 'v16.0'
+        });
 
     createBot({
         flow: adapterFlow,
